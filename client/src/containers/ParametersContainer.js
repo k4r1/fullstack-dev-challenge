@@ -13,7 +13,7 @@ let mapDispatchToActions = (dispatch) => {
     },
     updateProjection: (values) => {
       dispatch({type: "PROJECTION_LOADING"});
-      fetch(`http://localhost:3001/api/projection?initial=${values.initialSavings}&monthly=${values.monthlySavings}&interest=${values.interestRate}&period=${12 / values.interestPeriod}&months=600`)
+      fetch(`http://localhost:3001/api/projection?initial=${values.initialSavings}&monthly=${values.monthlySavings}&interest=${values.interestRate}&period=${values.interestPeriod}&months=600`)
         .then((data) => data.json())
         .then((data) => {
           dispatch({type: "PROJECTION_LOADED", data});
