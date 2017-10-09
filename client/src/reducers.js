@@ -10,7 +10,14 @@ let initialState = {
   projection: {
     loading: false,
     loaded: false,
-    data: []
+    data: [],
+    currency: 'GBP'
+  },
+  conversion: {
+    loading: false,
+    loaded: false,
+    base: 'GBP',
+    rates: []
   }
 };
 
@@ -33,12 +40,28 @@ let projectionReducer = (state = initialState.projection, action) => {
       return {...state, loading: false, loaded: true, data: action.data};
     case "PROJECTION_ERROR":
       return {...state, loading: false, loaded: false};
+    case "PROJECTION_CURRENCY_CHANGE":
+      return {...state, currency: action.curr}
     default:
       return state;
   }
 };
 
+let conversionReducer = (state = initialState.conversion, action) => {
+  switch (action.type) {
+    case "CONVERSION_LOADING":
+      return {...state, loading: true};
+    case "CONVERSION_LOADED":
+      return {...state, loading: false, loaded: true, rates: action.data.rates};
+    case "CONVERSION_ERROR":
+      return {...state, loading: false, loaded: false};
+    default:
+      return state;
+  }
+}
+
 export default combineReducers({
   parameters: parametersReducer,
-  projection: projectionReducer
+  projection: projectionReducer,
+  conversion: conversionReducer
 });
