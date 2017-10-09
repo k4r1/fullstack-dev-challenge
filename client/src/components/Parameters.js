@@ -10,14 +10,16 @@ class Parameters extends Component {
     super(props);
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleRadioButton = this.handleRadioButton.bind(this);
   }
   componentWillReceiveProps(p) {
     this.props.updateProjection(p);
   }
   handleChange(key) {
-    return (value) => {
-      this.props.onValueChange(key, value);
-    }
+    return (value) => this.props.onValueChange(key, value);
+  }
+  handleRadioButton(key, value) {
+    return () => this.handleChange(key)(value);
   }
   render () {
     return (
@@ -43,13 +45,27 @@ class Parameters extends Component {
         </div>
         <div>
           <p className="input-label">How often is your interest paid per year?</p>
-          <SliderInput
-            min={0}
-            max={12}
-            step={1}
-            defaultValue={0}
-            onChange={this.handleChange("interestPeriod")}
-          />
+          <p>
+            <input
+              type="radio"
+              checked={this.props.interestPeriod === 1}
+              onChange={this.handleRadioButton("interestPeriod", 1)}/>
+            Monthly
+          </p>
+          <p>
+            <input
+              type="radio"
+              checked={this.props.interestPeriod === 3}
+              onChange={this.handleRadioButton("interestPeriod", 3)}/>
+            Quarterly
+          </p>
+          <p>
+            <input
+              type="radio"
+              checked={this.props.interestPeriod === 12}
+              onChange={this.handleRadioButton("interestPeriod", 12)}/>
+            Annually
+          </p>
         </div>
       </div>
     )

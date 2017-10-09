@@ -5,7 +5,7 @@ let initialState = {
     initialSavings: 0,
     monthlySavings: 0,
     interestRate: 0,
-    interestPeriod: 0
+    interestPeriod: 1
   },
   projection: {
     loading: false,
