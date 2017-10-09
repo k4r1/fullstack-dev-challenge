@@ -7,7 +7,15 @@ let mapStateToProps = (state) => {
 };
 
 let mapDispatchToActions = (dispatch) => {
-  return {};
+  return {
+    onValueChange: (key, value) => {
+      dispatch({type: "PARAM_CHANGE", key, value});
+      dispatch({type: "PROJECTION_LOADING"});
+      setTimeout(() => {
+        dispatch({type: "PROJECTION_LOADED"});
+      }, 500);
+    }
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToActions)(Parameters);

@@ -14,11 +14,27 @@ let initialState = {
 };
 
 let parametersReducer = (state = initialState.parameters, action) => {
-  return state;
+  if (action.type === "PARAM_CHANGE") {
+    let newstate = {...state};
+    newstate[action.key] = action.value;
+
+    return newstate;
+  } else {
+    return state;
+  }
 };
 
 let projectionReducer = (state = initialState.projection, action) => {
-  return state;
+  switch (action.type) {
+    case "PROJECTION_LOADING":
+      return {...state, loading: true};
+    case "PROJECTION_LOADED":
+      return {...state, loading: false, loaded: true};
+    case "PROJECTION_ERROR":
+      return {...state, loading: false, loaded: false};
+    default:
+      return state;
+  }
 };
 
 export default combineReducers({

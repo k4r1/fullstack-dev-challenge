@@ -15,6 +15,7 @@ export default class SliderInput extends Component {
 	handleChange(e) {
 		const value = e.target.value
 		this.setState({value})
+		this.props.onChange(Number(value))
 	}
 
 	render() {
@@ -35,5 +36,6 @@ export default class SliderInput extends Component {
 }
 
 SliderInput.propTypes = {
-	defaultValue: PropTypes.number
+	defaultValue: PropTypes.number,
+	onChange: PropTypes.func.isRequired
 }
