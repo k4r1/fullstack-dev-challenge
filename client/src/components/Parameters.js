@@ -11,13 +11,15 @@ class Parameters extends Component {
 
     this.handleChange = this.handleChange.bind(this);
   }
+  componentWillReceiveProps(p) {
+    this.props.updateProjection(p);
+  }
   handleChange(key) {
     return (value) => {
       this.props.onValueChange(key, value);
     }
   }
   render () {
-    console.log(this.props);
     return (
       <div className="financial-inputs">
         <p className="input-label">How much have you saved?</p>
@@ -27,7 +29,7 @@ class Parameters extends Component {
         <CurrencyInput defaultValue={0} onChange={this.handleChange("monthlySavings")}/>
 
         <p className="input-label">How much interest will you earn per year?</p>
-        <SliderInput defaultValue={4} onChange={this.handleChange("interestRate")}/>
+        <SliderInput defaultValue={0} onChange={this.handleChange("interestRate")}/>
       </div>
     )
   }
@@ -37,7 +39,8 @@ Parameters.propTypes = {
   initialSavings: PropTypes.number,
   monthlySavings: PropTypes.number,
   interestRate: PropTypes.number,
-	onValueChange: PropTypes.func.isRequired
+	onValueChange: PropTypes.func.isRequired,
+	updateProjection: PropTypes.func.isRequired
 }
 
 export default Parameters;

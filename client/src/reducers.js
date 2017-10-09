@@ -29,7 +29,7 @@ let projectionReducer = (state = initialState.projection, action) => {
     case "PROJECTION_LOADING":
       return {...state, loading: true};
     case "PROJECTION_LOADED":
-      return {...state, loading: false, loaded: true};
+      return {...state, loading: false, loaded: true, data: action.data};
     case "PROJECTION_ERROR":
       return {...state, loading: false, loaded: false};
     default:
