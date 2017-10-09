@@ -13,30 +13,16 @@ let mapDispatchToActions = (dispatch) => {
     },
     updateProjection: (values) => {
       dispatch({type: "PROJECTION_LOADING"});
-      setTimeout(() => {
-        let data = calculateInterest(values);
-        dispatch({type: "PROJECTION_LOADED", data});
-      }, 500);
+      fetch(`http://localhost:3001/api/projection?initial=${values.initialSavings}&monthly=${values.monthlySavings}&interest=${values.interestRate}`)
+        .then((data) => data.json())
+        .then((data) => {
+          dispatch({type: "PROJECTION_LOADED", data});
+        })
+        .catch((error) => {
+          dispatch({type: "PROJECTION_ERROR"});
+        })
     }
   };
-}
-
-/* TODO: This will be done server side */
-let calculateInterest = (params) => {
-  console.log("Calculating Interest");
-  function* calculateBalance(o) {
-    var acc = params.initialSavings;
-    for (let i = 1; i <= o.months; ++i) {
-      acc = acc + params.monthlySavings;
-      if (i % 12 === 0) {
-        acc = acc * (1 + params.interestRate / 100);
-      };
-
-      yield {month: i, amount: acc};
-    }
-  }
-
-  return [...calculateBalance({months: 24})];
 }
 
 export default connect(mapStateToProps, mapDispatchToActions)(Parameters);

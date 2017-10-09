@@ -5,8 +5,6 @@ import DisplayGraph from './DisplayGraph'
 
 class Projection extends Component {
   render () {
-    console.log(this.props);
-
     return (
       <div className="financial-display">
         {/*We have included some sample data here, you will need to replace this
