@@ -16,6 +16,7 @@
 	border-bottom-left-radius: 8px;
 	border-top-left-radius: 8px;
 	border-right: none;
+	vertical-align:text-top;
 }
 
 .currency-input input {
@@ -29,6 +30,7 @@
 	letter-spacing: 1px;
 	max-width: 150px;
 	width: 60%;
+	vertical-align:text-top;
 }
 
 .currency-input :focus {

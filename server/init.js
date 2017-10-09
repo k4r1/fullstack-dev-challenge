@@ -5,8 +5,11 @@ module.exports = (app) => {
     let initialSavings = Number(req.query.initial)
     let monthlySavings = Number(req.query.monthly)
     let interestRate = Number(req.query.interest)
+    let interestPeriod = Number(req.query.period)
 
-    let d = calculateInterest({initialSavings, monthlySavings, interestRate})
+    let months = Number(req.query.months)
+
+    let d = calculateInterest({initialSavings, monthlySavings, interestRate, interestPeriod, months})
 
     res.json(d)
   })

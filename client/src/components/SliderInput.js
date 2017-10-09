@@ -23,12 +23,12 @@ export default class SliderInput extends Component {
 
 		return (
 			<div className="fmz-slider">
-				<p>{value}%</p>
+				<p>{value}{this.props.unit}</p>
 				<input type="range"
 					value={value}
-					min={0}
-					max={10}
-					step={0.25}
+					min={this.props.min}
+					max={this.props.max}
+					step={this.props.step}
 					onChange={this.handleChange.bind(this)}/>
 			</div>
 		)
