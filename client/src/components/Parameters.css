@@ -1,5 +1,8 @@
 .financial-inputs {
 	padding: 20px;
+  max-width: 300px;
+	text-align: center;
+  margin: 0px auto;
 }
 
 .input-label {

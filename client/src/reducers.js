@@ -2,9 +2,9 @@ import { combineReducers } from 'redux'
 
 let initialState = {
   parameters: {
-    initialSavings: 0,
-    monthlySavings: 0,
-    interestRate: 0,
+    initialSavings: 10,
+    monthlySavings: 10,
+    interestRate: 0.8,
     interestPeriod: 1
   },
   projection: {
@@ -17,7 +17,7 @@ let initialState = {
     loading: false,
     loaded: false,
     base: 'GBP',
-    rates: []
+    rates: {'GBP': 1}
   }
 };
 

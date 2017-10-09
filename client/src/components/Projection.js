@@ -17,7 +17,7 @@ class Projection extends Component {
   render () {
     let { rates, data, base, currency, getConversionInfo } = this.props;
 
-    if (rates.length === 0) { getConversionInfo(base) }
+    if (Object.keys(rates).length === 1) { getConversionInfo(base) }
 
     let scaled = data.map((point) => {
       return {...point, amount: point.amount * rates[currency]};
@@ -25,7 +25,10 @@ class Projection extends Component {
 
     return (
       <div className="financial-display">
+        <h2>📈 Projection</h2>
+        <p>Projection for the next 50 years (600 months)</p>
         <DisplayGraph data={scaled} />
+
         <p>Display in:
           <select value={currency} onChange={this.handleCurrencyChange}>
             {

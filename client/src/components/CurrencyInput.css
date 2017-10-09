@@ -1,15 +1,14 @@
 .currency-input {
 	width: 100%;
-	margin: auto;
+	margin: 20px auto;
 	font-weight: 800;
 	white-space: nowrap;
-	display: inline-block;
+	display: flex;
 }
 
 .currency-input span {
 	height: 18px;
 	background: white;
-	display: inline-block;
 	font-size: 15px;
 	padding: 9px 15px;
 	border: 2px solid #AAB8C8;
@@ -22,15 +21,14 @@
 .currency-input input {
 	padding: 9px;
 	font-size: 15px;
-	display: inline-block;
 	border: 2px solid #AAB8C8;
 	border-bottom-right-radius: 8px;
 	border-top-right-radius: 8px;
 	text-align: center;
 	letter-spacing: 1px;
-	max-width: 150px;
-	width: 60%;
+	width: 100%;
 	vertical-align:text-top;
+	margin: 0px;
 }
 
 .currency-input :focus {

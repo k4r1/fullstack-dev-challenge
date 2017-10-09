@@ -9,10 +9,12 @@ class App extends Component {
     return (
       <div className="App">
         <div className="header-banner">
-          <h1 className="fmz-white-font">Finimize Interest Rate Calculator</h1>
+          <h1 className="fmz-white-font">✨ finimize: Interest Rate Calculator</h1>
         </div>
-        <ParametersContainer />
-        <ProjectionContainer />
+        <div className="app-body">
+          <ParametersContainer />
+          <ProjectionContainer />
+        </div>
       </div>
     );
   }

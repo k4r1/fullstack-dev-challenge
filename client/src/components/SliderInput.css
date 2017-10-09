@@ -1,13 +1,15 @@
 .fmz-slider {
 	text-align: center;
-	width: 200px;
+	width: 100%;
+	margin: auto;
 }
 
 .fmz-slider input {
-	width: 200px;
+	width: 100%;
 }
 
 .fmz-slider p {
 	margin-bottom: 4px;
 	margin-top: 4px;
+	font-weight: bold;
 }

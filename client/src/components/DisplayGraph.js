@@ -7,57 +7,37 @@ export default class DisplayGraph extends Component {
 	render() {
 		const { data } = this.props;
 
-		const baseProps = {
-  		width: 450,
-  		height: 300,
-  		padding: 50,
-  		colorScale: ["#48C8FF", "#00b2ff", "#038AD0", "#006C9B"]
-		};
-
-		const baseLabelStyles = {
-  		fontFamily: "'Avenir Next', 'Avenir', 'Lato', 'Helvetica', 'Arial', 'Sans-Serif'",
-  		fontSize: 2,
-  		letterSpacing: 'normal',
-  		padding: 10,
-  		fill: "#00b2ff",
-  		stroke: "transparent"
-		};
-
 		const theme = {
-			area: {
+			axis: {
 				style: {
-					labels: baseLabelStyles
-				}
-			},
-			axis: Object.assign({
-				style: {
-					axisLabel: baseLabelStyles,
 					grid: {
 						fill: "transparent",
 						stroke: "transparent"
 					},
 					ticks: {
 						fill: "transparent",
-						size: 0,
 						stroke: "transparent"
+					},
+					tickLabels: {
+						fontSize: 10,
+						padding: 5
 					}
 				}
-			}, baseProps),
-			line: Object.assign({
+			},
+			line: {
     		style: {
       		data: {
         		fill: "transparent",
         		stroke: "#00b2ff",
         		strokeWidth: 2
-      		},
-      		labels: baseLabelStyles
+      		}
     		}
-  		}, baseProps)
+  		}
 		};
 
 		return (
 			<div>
-				<VictoryChart animate={{duration: 100}} theme={theme}>
+				<VictoryChart animate={{duration: 100}} theme={theme} padding={{ top: 10, left: 50, bottom: 20, right: 50}}>
 					<VictoryLine {...{data}} y="amount"/>
 				</VictoryChart>
 			</div>

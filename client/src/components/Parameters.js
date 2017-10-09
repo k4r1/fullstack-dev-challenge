@@ -24,13 +24,15 @@ class Parameters extends Component {
   render () {
     return (
       <div className="financial-inputs">
+        <h2>🏦 Savings Information</h2>
+
         <div>
           <p className="input-label">How much have you saved?</p>
-          <CurrencyInput defaultValue={0} onChange={this.handleChange("initialSavings")}/>
+          <CurrencyInput defaultValue={this.props.initialSavings} onChange={this.handleChange("initialSavings")}/>
         </div>
         <div>
           <p className="input-label">How much will you save each month?</p>
-          <CurrencyInput defaultValue={0} onChange={this.handleChange("monthlySavings")}/>
+          <CurrencyInput defaultValue={this.props.monthlySavings} onChange={this.handleChange("monthlySavings")}/>
         </div>
         <div>
           <p className="input-label">What is your annual interest rate?</p>
@@ -39,12 +41,12 @@ class Parameters extends Component {
             max={10}
             step={0.25}
             unit="%"
-            defaultValue={0}
+            defaultValue={this.props.interestRate}
             onChange={this.handleChange("interestRate")}
           />
         </div>
         <div>
-          <p className="input-label">How often is your interest paid per year?</p>
+          <p className="input-label">How often is your interest paid?</p>
           <p>
             <input
               type="radio"
