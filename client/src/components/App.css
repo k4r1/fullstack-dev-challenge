@@ -1,3 +1,9 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Avenir Next', 'Avenir', 'Lato', 'Helvetica', 'Arial', 'Sans-Serif';
 	font-weight: 600;
@@ -44,13 +50,4 @@ p {
 .header-banner {
 	background-color: #00b2ff;
 	padding: 20px;
-}
-
-.financial-inputs {
-	padding: 20px;
-}
-
-.input-label {
-	margin-bottom: 4px;
-	margin-top: 12px;
 }
